@@ -36,11 +36,15 @@ INSERT INTO tasks VALUES
   INSERT INTO tasks VALUES
   (DEFAULT,'Study PostgreSQL', 'Read all the documentation',DEFAULT,DEFAULT,DEFAULT);
 
-  SELECT * FROM tasks;
+SELECT * FROM tasks;
 
+SELECT id, title FROM tasks WHERE completed_at IS NULL;
 
+UPDATE tasks
+  SET completed_at = now()
+  WHERE title LIKE 'Study SQL';
 
-
+SELECT * FROM tasks WHERE title LIKE 'Study SQL';
 
 
 \c andrew;
