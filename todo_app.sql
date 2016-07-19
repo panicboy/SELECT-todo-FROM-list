@@ -2,7 +2,7 @@
 DROP ROLE IF EXISTS michael;
 
 \echo 2.
-CREATE ROLE michael PASSWORD 'stonebreaker';
+CREATE ROLE michael ENCRYPTED PASSWORD 'stonebreaker';
 
 \echo 3.
 DROP DATABASE IF EXISTS todo_app;
@@ -49,7 +49,9 @@ INSERT INTO tasks VALUES
 SELECT * FROM tasks;
 
 \echo 8(vi)
-SELECT id, title FROM tasks WHERE completed_at IS NULL;
+SELECT id, title
+  FROM tasks
+  WHERE completed_at IS NULL;
 
 \echo 8(vii)
 UPDATE tasks
